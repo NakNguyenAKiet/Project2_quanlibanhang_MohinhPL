@@ -42,7 +42,7 @@ public class MainUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         TabbedPane_Show_UI.setBackground(new java.awt.Color(255, 255, 255));
-        TabbedPane_Show_UI.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TabbedPane_Show_UI.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
