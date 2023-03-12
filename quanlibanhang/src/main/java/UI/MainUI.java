@@ -1,7 +1,5 @@
 package UI;
 
-import java.awt.Container;
-import java.awt.Dimension;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -9,6 +7,7 @@ public class MainUI extends javax.swing.JFrame {
     public MainUI() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
         ImportUI importUI = new ImportUI();
         BillUI billUI = new BillUI();
         CustomerUI customerUI = new CustomerUI();
@@ -17,15 +16,8 @@ public class MainUI extends javax.swing.JFrame {
         showUI("Quản lý hóa đơn", billUI);
         showUI("Quản lý khách hàng", customerUI);
         showUI("Thống kê doanh thu / sản phẩm ", statisticalUI);
-        
-        Container container = importUI.getParent();
-        Dimension size = container.getSize();
-        int width = size.width;
-        int height = size.height;
-        System.out.println(width);
-        System.out.println(height);
     }
-
+    
     private void showUI(String tabName, JInternalFrame UI) {
         UI.setVisible(true);
         UI.setSize(TabbedPane_Show_UI.getSize());
