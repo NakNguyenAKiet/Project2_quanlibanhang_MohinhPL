@@ -41,10 +41,4 @@ public class DBConnection {
         }
         return connection;
     }
-    
-    public static void main(String[] args) {
-        DBConnection conn = new DBConnection();
-        boolean open = conn.open();
-        System.err.println(open);
-    }
 }
