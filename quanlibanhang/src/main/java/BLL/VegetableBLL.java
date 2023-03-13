@@ -7,7 +7,6 @@ import java.util.List;
 public class VegetableBLL {
     private final VegetableDAL vegetableDAL = new VegetableDAL();
      
-    /*
     public List<Vegetable> getAllVegetables() { 
         return vegetableDAL.getAllVegetables();
     }
@@ -26,5 +25,4 @@ public class VegetableBLL {
     public boolean deleteVegetable(int vegetableId) { 
         return vegetableDAL.deleteVegetable(vegetableId);
     }
-    */
 }

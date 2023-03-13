@@ -8,6 +8,10 @@ public class Vegetable {
     private int amount;
     private String image;
     private float price;
+    
+    public Vegetable(int vegetableId, int categoryId, String vegetableName, String unit, int amount, String image, float price) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
     public int getVegetableId() {
         return vegetableId;

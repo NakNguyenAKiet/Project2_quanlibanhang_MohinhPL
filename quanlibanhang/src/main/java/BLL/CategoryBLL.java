@@ -7,7 +7,6 @@ import java.util.List;
 public class CategoryBLL {
     private final CategoryDAL categoryDAL = new CategoryDAL();
 
-    /*
     public List<Category> getAllCategories() {
         return categoryDAL.getAllCategories();
     }
@@ -27,5 +26,4 @@ public class CategoryBLL {
     public boolean deleteCategory(int categoryId) {
         return categoryDAL.deleteCategory(categoryId);
     }
-    */
 }
