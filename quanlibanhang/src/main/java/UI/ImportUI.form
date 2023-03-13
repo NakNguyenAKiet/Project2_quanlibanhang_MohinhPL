@@ -354,6 +354,10 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_VegetableID">
               <Properties>
+                <Property name="text" type="java.lang.String" value="1"/>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -405,6 +409,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_VegetableName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tomato"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -451,6 +458,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_VegetableAmount">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="100"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -497,6 +507,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_VegetablePrice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="150000"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -895,6 +908,10 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_CategoryID">
               <Properties>
+                <Property name="text" type="java.lang.String" value="1"/>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -938,6 +955,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_CategoryName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fruit"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
@@ -979,6 +999,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_CategoryDescription">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="The kind that can be eaten without cooking"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>

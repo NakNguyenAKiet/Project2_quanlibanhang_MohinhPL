@@ -288,6 +288,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        textField_VegetableID.setText("1");
+        textField_VegetableID.setDisabledTextColor(new java.awt.Color(102, 102, 102));
         textField_VegetableID.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
@@ -313,6 +315,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 35, 220, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        textField_VegetableName.setText("Tomato");
 
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 64, 198));
@@ -340,6 +344,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
+        textField_VegetableAmount.setText("100");
+
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 64, 198));
         jLabel6.setText("Số Lượng:");
@@ -363,6 +369,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 161, 220, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        textField_VegetablePrice.setText("150000");
 
         jLabel7.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 64, 198));
@@ -512,6 +520,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
+        textField_CategoryID.setText("1");
+        textField_CategoryID.setDisabledTextColor(new java.awt.Color(102, 102, 102));
         textField_CategoryID.setEnabled(false);
 
         jLabel10.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
@@ -536,6 +546,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
+        textField_CategoryName.setText("Fruit");
+
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 64, 198));
         jLabel11.setText("Tên Danh Mục:");
@@ -557,6 +569,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
         );
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+
+        textField_CategoryDescription.setText("The kind that can be eaten without cooking");
 
         jLabel12.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 64, 198));
