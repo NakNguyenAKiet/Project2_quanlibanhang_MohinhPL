@@ -7,8 +7,11 @@ import Utils.CustomJTextField;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.io.File;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import jiconfont.icons.font_awesome.FontAwesome;
+import jiconfont.swing.IconFontSwing;
 
 public class ImportUI extends javax.swing.JInternalFrame {
     
@@ -46,6 +49,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
         customJTextField.custom(textField_CategoryID);
         customJTextField.custom(textField_CategoryName);
         customJTextField.custom(textField_CategoryDescription);
+        customJTextField.custom(textField_SearchVegetable);
+        customJTextField.custom(textField_SearchCategory);
         
         customJComboBox.setComboBoxBackgroundColor(Color.WHITE);
         customJComboBox.setComboBoxForegroundColor(new Color(30, 39, 46));
@@ -60,16 +65,64 @@ public class ImportUI extends javax.swing.JInternalFrame {
         customJComboBox.custom(comboBox_VegetableCategoryID);
         customJComboBox.custom(comboBox_VegetableUnit);
         
-        customJButton.custom(jButton1);
+        customJButton.setButtonForegroundColor(Color.WHITE);
+        customJButton.setButtonFont("Cambria");
+        customJButton.setButtonFontStyle(Font.BOLD);
+        customJButton.setButtonFontSize(15);
+        customJButton.setButtonBorderColor(Color.WHITE);
+        customJButton.setButtonBorderWeight(0);
+        customJButton.setButtonBorderRadius(10);
+        IconFontSwing.register(FontAwesome.getIconFont());
         
+        customJButton.setButtonBackgroundColor(new Color(50, 255, 126));
+        Icon iconInsertVegetable = IconFontSwing.buildIcon(FontAwesome.PLUS_CIRCLE, 18, Color.WHITE);
+        customJButton.setButtonIcon(iconInsertVegetable);
+        customJButton.custom(button_InsertVegetable);
+        Icon iconInsertCategory = IconFontSwing.buildIcon(FontAwesome.PLUS_CIRCLE, 22, Color.WHITE);
+        customJButton.setButtonIcon(iconInsertCategory);
+        customJButton.custom(button_InsertCategory);
         
-//        ImageIcon icon = new ImageIcon("/images/no-image.png");
-//        Image img = icon.getImage();
-//        System.out.println(img);
-//        Image resizedImg = img.getScaledInstance(140, 140, Image.SCALE_SMOOTH);
-//        ImageIcon resizedIcon = new ImageIcon(resizedImg);
-//        label_Image.setIcon(resizedIcon);
+        customJButton.setButtonBackgroundColor(new Color(255, 242, 0));
+        Icon iconUpdateVegetable = IconFontSwing.buildIcon(FontAwesome.PENCIL, 17, Color.WHITE);
+        customJButton.setButtonIcon(iconUpdateVegetable);
+        customJButton.custom(button_UpdateVegetable);
+        Icon iconUpdateCategory = IconFontSwing.buildIcon(FontAwesome.PENCIL, 20, Color.WHITE);
+        customJButton.setButtonIcon(iconUpdateCategory);
+        customJButton.custom(button_UpdateCategory);
         
+        customJButton.setButtonBackgroundColor(new Color(255, 56, 56));
+        Icon iconDeleteVegetable = IconFontSwing.buildIcon(FontAwesome.TRASH, 17, Color.WHITE);
+        customJButton.setButtonIcon(iconDeleteVegetable);
+        customJButton.custom(button_DeleteVegetable);
+        Icon iconDeleteCategory = IconFontSwing.buildIcon(FontAwesome.TRASH, 20, Color.WHITE);
+        customJButton.setButtonIcon(iconDeleteCategory);
+        customJButton.custom(button_DeleteCategory);
+        
+        customJButton.setButtonBackgroundColor(new Color(125, 95, 255));
+        Icon iconResetVegetable = IconFontSwing.buildIcon(FontAwesome.REPEAT, 17, Color.WHITE);
+        customJButton.setButtonIcon(iconResetVegetable);
+        customJButton.custom(button_ResetVegetable);
+        Icon iconResetCategory = IconFontSwing.buildIcon(FontAwesome.REPEAT, 20, Color.WHITE);
+        customJButton.setButtonIcon(iconResetCategory);
+        customJButton.custom(button_ResetCategory);
+        
+        customJButton.setButtonBackgroundColor(new Color(30, 39, 46));
+        Icon iconSearchVegetable = IconFontSwing.buildIcon(FontAwesome.SEARCH, 17, Color.WHITE);
+        customJButton.setButtonIcon(iconSearchVegetable);
+        customJButton.custom(button_SearchVegetable);
+        Icon iconSearchCategory = IconFontSwing.buildIcon(FontAwesome.SEARCH, 20, Color.WHITE);
+        customJButton.setButtonIcon(iconSearchCategory);
+        customJButton.custom(button_SearchCategory);
+
+        makeIcon("no-image.png", label_Image, 140, 140);
+        
+    }
+    
+    private void makeIcon (String filename, JLabel label, int width, int height) {
+        String relativePath = "src/main/java/images/";
+        ImageIcon icon = new ImageIcon(relativePath + filename);
+        Image resizedImg = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        label.setIcon(new ImageIcon(resizedImg));
     }
     
     
@@ -104,7 +157,12 @@ public class ImportUI extends javax.swing.JInternalFrame {
         comboBox_VegetableUnit = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
         label_Image = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        button_ResetVegetable = new javax.swing.JButton();
+        textField_SearchVegetable = new javax.swing.JTextField();
+        button_InsertVegetable = new javax.swing.JButton();
+        button_UpdateVegetable = new javax.swing.JButton();
+        button_DeleteVegetable = new javax.swing.JButton();
+        button_SearchVegetable = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -116,6 +174,12 @@ public class ImportUI extends javax.swing.JInternalFrame {
         jPanel12 = new javax.swing.JPanel();
         textField_CategoryDescription = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        button_ResetCategory = new javax.swing.JButton();
+        button_DeleteCategory = new javax.swing.JButton();
+        button_UpdateCategory = new javax.swing.JButton();
+        button_SearchCategory = new javax.swing.JButton();
+        button_InsertCategory = new javax.swing.JButton();
+        textField_SearchCategory = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(241, 242, 246));
         setBorder(null);
@@ -215,14 +279,16 @@ public class ImportUI extends javax.swing.JInternalFrame {
         }
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(30, 39, 46));
         jLabel1.setText("NHẬP SẢN PHẨM");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        textField_VegetableID.setText("jTextField1");
+        textField_VegetableID.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 64, 198));
@@ -244,9 +310,9 @@ public class ImportUI extends javax.swing.JInternalFrame {
                 .addComponent(textField_VegetableID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 35, 220, -1));
 
-        textField_VegetableName.setText("jTextField1");
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 64, 198));
@@ -257,7 +323,9 @@ public class ImportUI extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(textField_VegetableName)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(textField_VegetableName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,9 +336,9 @@ public class ImportUI extends javax.swing.JInternalFrame {
                 .addComponent(textField_VegetableName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 98, -1, -1));
 
-        textField_VegetableAmount.setText("jTextField1");
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 64, 198));
@@ -292,9 +360,9 @@ public class ImportUI extends javax.swing.JInternalFrame {
                 .addComponent(textField_VegetableAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 161, 220, -1));
 
-        textField_VegetablePrice.setText("jTextField1");
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 64, 198));
@@ -315,6 +383,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textField_VegetablePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 224, 220, -1));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -343,6 +413,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
                 .addComponent(comboBox_VegetableCategoryID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 35, -1, -1));
+
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
@@ -370,9 +442,11 @@ public class ImportUI extends javax.swing.JInternalFrame {
                 .addComponent(comboBox_VegetableUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 98, -1, -1));
+
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        label_Image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 64, 198)));
+        label_Image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(223, 228, 234), 2));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -387,64 +461,48 @@ public class ImportUI extends javax.swing.JInternalFrame {
             .addComponent(label_Image, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jButton1.setText("THÊM");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 15, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        button_ResetVegetable.setText("RESET");
+        button_ResetVegetable.setBorder(null);
+        button_ResetVegetable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_ResetVegetable.setFocusable(false);
+        button_ResetVegetable.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        button_ResetVegetable.setIconTextGap(5);
+        jPanel1.add(button_ResetVegetable, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 183, 88, 35));
+        jPanel1.add(textField_SearchVegetable, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 246, 250, 35));
+
+        button_InsertVegetable.setText("THÊM");
+        button_InsertVegetable.setBorder(null);
+        button_InsertVegetable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_InsertVegetable.setFocusable(false);
+        button_InsertVegetable.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        button_InsertVegetable.setIconTextGap(5);
+        jPanel1.add(button_InsertVegetable, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 183, 88, 35));
+
+        button_UpdateVegetable.setText("SỬA");
+        button_UpdateVegetable.setBorder(null);
+        button_UpdateVegetable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_UpdateVegetable.setFocusable(false);
+        button_UpdateVegetable.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        button_UpdateVegetable.setIconTextGap(5);
+        jPanel1.add(button_UpdateVegetable, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 183, 88, 35));
+
+        button_DeleteVegetable.setText("XÓA");
+        button_DeleteVegetable.setBorder(null);
+        button_DeleteVegetable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_DeleteVegetable.setFocusable(false);
+        button_DeleteVegetable.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        button_DeleteVegetable.setIconTextGap(5);
+        jPanel1.add(button_DeleteVegetable, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 183, 88, 35));
+
+        button_SearchVegetable.setText("TÌM KIẾM");
+        button_SearchVegetable.setBorder(null);
+        button_SearchVegetable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_SearchVegetable.setFocusable(false);
+        button_SearchVegetable.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        button_SearchVegetable.setIconTextGap(5);
+        jPanel1.add(button_SearchVegetable, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 245, 110, 35));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -454,7 +512,7 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
-        textField_CategoryID.setText("jTextField1");
+        textField_CategoryID.setEnabled(false);
 
         jLabel10.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 64, 198));
@@ -478,8 +536,6 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
-        textField_CategoryName.setText("jTextField1");
-
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 64, 198));
         jLabel11.setText("Tên Danh Mục:");
@@ -502,8 +558,6 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
-        textField_CategoryDescription.setText("jTextField1");
-
         jLabel12.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 64, 198));
         jLabel12.setText("Mô Tả:");
@@ -524,6 +578,36 @@ public class ImportUI extends javax.swing.JInternalFrame {
                 .addComponent(textField_CategoryDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        button_ResetCategory.setBorder(null);
+        button_ResetCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_ResetCategory.setFocusable(false);
+        button_ResetCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_ResetCategory.setIconTextGap(0);
+
+        button_DeleteCategory.setBorder(null);
+        button_DeleteCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_DeleteCategory.setFocusable(false);
+        button_DeleteCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_DeleteCategory.setIconTextGap(0);
+
+        button_UpdateCategory.setBorder(null);
+        button_UpdateCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_UpdateCategory.setFocusable(false);
+        button_UpdateCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_UpdateCategory.setIconTextGap(0);
+
+        button_SearchCategory.setBorder(null);
+        button_SearchCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_SearchCategory.setFocusable(false);
+        button_SearchCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_SearchCategory.setIconTextGap(0);
+
+        button_InsertCategory.setBorder(null);
+        button_InsertCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_InsertCategory.setFocusable(false);
+        button_InsertCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        button_InsertCategory.setIconTextGap(0);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -531,26 +615,47 @@ public class ImportUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                                .addComponent(button_InsertCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(button_UpdateCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(button_DeleteCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textField_SearchCategory))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(button_ResetCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                            .addComponent(button_SearchCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(button_InsertCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(button_UpdateCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button_DeleteCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button_ResetCategory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(button_SearchCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(textField_SearchCategory))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -564,7 +669,7 @@ public class ImportUI extends javax.swing.JInternalFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -573,7 +678,7 @@ public class ImportUI extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -590,9 +695,18 @@ public class ImportUI extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Import_Category_Table;
     private javax.swing.JTable Import_Vegetable_Table;
+    private javax.swing.JButton button_DeleteCategory;
+    private javax.swing.JButton button_DeleteVegetable;
+    private javax.swing.JButton button_InsertCategory;
+    private javax.swing.JButton button_InsertVegetable;
+    private javax.swing.JButton button_ResetCategory;
+    private javax.swing.JButton button_ResetVegetable;
+    private javax.swing.JButton button_SearchCategory;
+    private javax.swing.JButton button_SearchVegetable;
+    private javax.swing.JButton button_UpdateCategory;
+    private javax.swing.JButton button_UpdateVegetable;
     private javax.swing.JComboBox<String> comboBox_VegetableCategoryID;
     private javax.swing.JComboBox<String> comboBox_VegetableUnit;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -622,6 +736,8 @@ public class ImportUI extends javax.swing.JInternalFrame {
     private javax.swing.JTextField textField_CategoryDescription;
     private javax.swing.JTextField textField_CategoryID;
     private javax.swing.JTextField textField_CategoryName;
+    private javax.swing.JTextField textField_SearchCategory;
+    private javax.swing.JTextField textField_SearchVegetable;
     private javax.swing.JTextField textField_VegetableAmount;
     private javax.swing.JTextField textField_VegetableID;
     private javax.swing.JTextField textField_VegetableName;
