@@ -1,5 +1,7 @@
 package UI;
 
+import BLL.CategoryBLL;
+import DTO.Category;
 import Utils.CustomJButton;
 import Utils.CustomJComboBox;
 import Utils.CustomJTable;
@@ -118,6 +120,11 @@ public class ImportUI extends javax.swing.JInternalFrame {
         
     }
     
+    
+    
+    
+    
+
     private void makeIcon (String filename, JLabel label, int width, int height) {
         String relativePath = "src/main/java/images/";
         ImageIcon icon = new ImageIcon(relativePath + filename);
@@ -520,7 +527,6 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
-        textField_CategoryID.setText("1");
         textField_CategoryID.setDisabledTextColor(new java.awt.Color(102, 102, 102));
         textField_CategoryID.setEnabled(false);
 
@@ -546,8 +552,6 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
-        textField_CategoryName.setText("Fruit");
-
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 64, 198));
         jLabel11.setText("Tên Danh Mục:");
@@ -569,8 +573,6 @@ public class ImportUI extends javax.swing.JInternalFrame {
         );
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-
-        textField_CategoryDescription.setText("The kind that can be eaten without cooking");
 
         jLabel12.setFont(new java.awt.Font("Cambria", 1, 13)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 64, 198));
@@ -597,30 +599,55 @@ public class ImportUI extends javax.swing.JInternalFrame {
         button_ResetCategory.setFocusable(false);
         button_ResetCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_ResetCategory.setIconTextGap(0);
+        button_ResetCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_ResetCategoryActionPerformed(evt);
+            }
+        });
 
         button_DeleteCategory.setBorder(null);
         button_DeleteCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_DeleteCategory.setFocusable(false);
         button_DeleteCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_DeleteCategory.setIconTextGap(0);
+        button_DeleteCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_DeleteCategoryActionPerformed(evt);
+            }
+        });
 
         button_UpdateCategory.setBorder(null);
         button_UpdateCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_UpdateCategory.setFocusable(false);
         button_UpdateCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_UpdateCategory.setIconTextGap(0);
+        button_UpdateCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_UpdateCategoryActionPerformed(evt);
+            }
+        });
 
         button_SearchCategory.setBorder(null);
         button_SearchCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_SearchCategory.setFocusable(false);
         button_SearchCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_SearchCategory.setIconTextGap(0);
+        button_SearchCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_SearchCategoryActionPerformed(evt);
+            }
+        });
 
         button_InsertCategory.setBorder(null);
         button_InsertCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_InsertCategory.setFocusable(false);
         button_InsertCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         button_InsertCategory.setIconTextGap(0);
+        button_InsertCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_InsertCategoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -703,6 +730,44 @@ public class ImportUI extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    Category category = new Category();
+    CategoryBLL categoryBLL = new CategoryBLL();
+    
+    /* ===================================== INSERT CATEGORY ===================================== */   
+    private void button_InsertCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_InsertCategoryActionPerformed
+        category.setCategoryId(4);
+        category.setName(textField_CategoryName.getText());
+        category.setDescription(textField_CategoryDescription.getText());
+        String error = categoryBLL.insertCategory(category);
+        if (error == null) {
+            System.out.println("Insert Category Successfully!");
+        } else {
+            System.err.println(error);
+        }
+    }//GEN-LAST:event_button_InsertCategoryActionPerformed
+
+    /* ===================================== UPDATE CATEGORY ===================================== */   
+    private void button_UpdateCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_UpdateCategoryActionPerformed
+       
+    }//GEN-LAST:event_button_UpdateCategoryActionPerformed
+
+    /* ===================================== DELETE CATEGORY ===================================== */   
+    private void button_DeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_DeleteCategoryActionPerformed
+       
+    }//GEN-LAST:event_button_DeleteCategoryActionPerformed
+
+    /* ===================================== RESET CATEGORY ===================================== */   
+    private void button_ResetCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ResetCategoryActionPerformed
+        textField_CategoryID.setText("");
+        textField_CategoryName.setText("");
+        textField_CategoryDescription.setText("");
+    }//GEN-LAST:event_button_ResetCategoryActionPerformed
+
+    /* ===================================== SEARCH CATEGORY ===================================== */   
+    private void button_SearchCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SearchCategoryActionPerformed
+        
+    }//GEN-LAST:event_button_SearchCategoryActionPerformed
    
 
     

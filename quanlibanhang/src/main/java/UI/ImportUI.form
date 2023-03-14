@@ -908,7 +908,6 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_CategoryID">
               <Properties>
-                <Property name="text" type="java.lang.String" value="1"/>
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
@@ -955,9 +954,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_CategoryName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Fruit"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
@@ -999,9 +995,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="textField_CategoryDescription">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="The kind that can be eaten without cooking"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
@@ -1028,6 +1021,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="iconTextGap" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_ResetCategoryActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="button_DeleteCategory">
           <Properties>
@@ -1041,6 +1037,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="iconTextGap" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_DeleteCategoryActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="button_UpdateCategory">
           <Properties>
@@ -1054,6 +1053,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="iconTextGap" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_UpdateCategoryActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="button_SearchCategory">
           <Properties>
@@ -1067,6 +1069,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="iconTextGap" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_SearchCategoryActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="button_InsertCategory">
           <Properties>
@@ -1080,6 +1085,9 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="iconTextGap" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_InsertCategoryActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="textField_SearchCategory">
         </Component>

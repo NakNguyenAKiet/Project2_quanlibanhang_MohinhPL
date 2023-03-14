@@ -8,6 +8,7 @@ public class MainUI extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        setTitle("QUẢN LÝ BÁN HÀNG");
         ImportUI importUI = new ImportUI();
         BillUI billUI = new BillUI();
         CustomerUI customerUI = new CustomerUI();
