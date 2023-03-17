@@ -1,5 +1,6 @@
 package UI;
 
+import UI.OrderManagementUI.ListBillUI;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -10,7 +11,7 @@ public class MainUI extends javax.swing.JFrame {
         setResizable(false);
         setTitle("QUẢN LÝ BÁN HÀNG");
         ImportUI importUI = new ImportUI();
-        BillUI billUI = new BillUI();
+        ListBillUI billUI = new ListBillUI();
         CustomerUI customerUI = new CustomerUI();
         StatisticalUI statisticalUI = new StatisticalUI();
         showUI("Quản lý nhập hàng", importUI);
